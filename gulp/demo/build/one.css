@@ -1,0 +1,7 @@
+.item {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 4px;
+}

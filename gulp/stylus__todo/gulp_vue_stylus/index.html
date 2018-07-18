@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>望穿秋水</title>
+    <link rel="stylesheet" href="/dist/css/common.css">
+</head>
+<body>
+<div id = "app" class="container">
+    <div class="todo-wrapper">
+        <!-- 生产出来组件  极强的复用性
+        标签很穷， HTML很简单，
+        组件却强大 将html,css,js 封装在一起
+        完成一个功能，实现一次封装，到处可用
+        todo-header 标签名，
+        以前切页面，写js jquery DOM级别
+        做一个个的组件，将组件组合成页面 -->
+        <todo-header></todo-header>
+        <div class="todo-content">
+            <todo-report></todo-report>
+            <todo-list></todo-list>           
+        </div>
+    </div>
+</div>
+<template id="todo-header">
+    <div class="todo-header">
+        <div class="overlay"></div>
+        <time class="clearfix">
+            <span class="day">{{date}}</span>
+            <span class="dayofweek">{{weekDay}}</span>
+            <span class="month">{{month}},{{year}}</span>
+        </time>
+        <div class="add-circle">
+            <i class="fa fa-plus"></i>
+        </div>
+    </div>
+</template>
+<template id="todo-report">
+    <div class="todo-content-title">
+        <h2>您的任务列表</h2>
+        <p class="task-report">
+            <span class="task-remain">
+                {{taskDone}}done/{{taskTotal}}tasks
+            </span>
+        </p>
+    </div>
+</template>
+<template id="todo-list">
+    <ul class="todo-list">
+        <todo-item v-for="item in collection"></todo-item>
+    </ul>
+</template>
+<template id="todo-item">
+    <li class="todo-item task-done">
+        <span class="label urgent">
+            <ul class="action-pick-label action-popup">
+                <li class="important">Important</li>
+                <li class="normal">Normal</li>
+                <li class="other">Whatever</li>
+            </ul>
+        </span>
+        <p class="text">学习stylus</p>
+        <div class="todo-action">
+            <span class="more">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+        </div>
+    </li>
+</template>
+<script src="http://cdn.bootcss.com/vue/2.3.2/vue.min.js"></script>
+<script src="/dist/js/common.js"></script>
+</body>
+</html>
